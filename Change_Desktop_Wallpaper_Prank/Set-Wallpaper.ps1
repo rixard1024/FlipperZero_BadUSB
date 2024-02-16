@@ -93,8 +93,20 @@ public class Params
 
 wget -Uri $uri_img -OutFile "C:\temp\wallpaper.jpg"
 Start-Sleep -Seconds $wait # Wait  seconds
+
+$shell = New-Object -ComObject "Shell.Application"
+$shell.MinimizeAll()
+
 Set-WallPaper -Image "C:\temp\wallpaper.jpg" -Style $style
 
+start-sleep -Seconds 1
+del "C:\temp\wallpaper.jpg"
+
+Add-Type -AssemblyName PresentationFramework
+1..10 | % { 
+    [System.Windows.MessageBox]::Show("You have been hacked" + ("!" * $_),"H4ck3d!","OK","Stop")
+    start-sleep -Seconds 1
+}
 
 # How call this ps1 file (just execute):
 # .\Set-WallPaper.ps1
