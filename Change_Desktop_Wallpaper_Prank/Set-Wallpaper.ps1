@@ -98,12 +98,12 @@ $shell = New-Object -ComObject "Shell.Application"
 $shell.MinimizeAll()
 
 start-sleep -Seconds 1
-Set-WallPaper -Image "C:\temp\wallpaper.jpg" -Style $style
-
-start-sleep -Seconds 1
 $Path="HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 Set-ItemProperty -Path $Path -Name "HideIcons" -Value 1
 Get-Process "explorer"| Stop-Process
+
+start-sleep -Seconds 1
+Set-WallPaper -Image "C:\temp\wallpaper.jpg" -Style $style
 
 del "C:\temp\wallpaper.jpg"
 
