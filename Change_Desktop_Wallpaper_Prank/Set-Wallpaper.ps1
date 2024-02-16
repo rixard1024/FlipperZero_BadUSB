@@ -97,12 +97,18 @@ Start-Sleep -Seconds $wait # Wait  seconds
 $shell = New-Object -ComObject "Shell.Application"
 $shell.MinimizeAll()
 
+start-sleep -Seconds 1
 Set-WallPaper -Image "C:\temp\wallpaper.jpg" -Style $style
 
 start-sleep -Seconds 1
+$Path="HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+Set-ItemProperty -Path $Path -Name "HideIcons" -Value 1
+Get-Process "explorer"| Stop-Process
+
 del "C:\temp\wallpaper.jpg"
 
 Add-Type -AssemblyName PresentationFramework
+# [System.Windows.MessageBox]::Show(MessageBody,Title,ButtonType,Image)
 1..10 | % { 
     [System.Windows.MessageBox]::Show("You have been hacked" + ("!" * $_),"H4ck3d!","OK","Stop")
     start-sleep -Seconds 1
