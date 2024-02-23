@@ -94,25 +94,28 @@ public class Params
 wget -Uri $uri_img -OutFile "C:\temp\wallpaper.jpg"
 Start-Sleep -Seconds $wait # Wait  seconds
 
-$shell = New-Object -ComObject "Shell.Application"
-$shell.MinimizeAll()
+# + Surprise
+# $shell = New-Object -ComObject "Shell.Application"
+# $shell.MinimizeAll()
 
-start-sleep -Seconds 1
-$Path="HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
-Set-ItemProperty -Path $Path -Name "HideIcons" -Value 1
-Get-Process "explorer"| Stop-Process
+# + Surprise
+# start-sleep -Seconds 1
+# $Path="HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+# Set-ItemProperty -Path $Path -Name "HideIcons" -Value 1
+# Get-Process "explorer"| Stop-Process
 
 start-sleep -Seconds 1
 Set-WallPaper -Image "C:\temp\wallpaper.jpg" -Style $style
 
 del "C:\temp\wallpaper.jpg"
 
-Add-Type -AssemblyName PresentationFramework
+# + Surprise
+# Add-Type -AssemblyName PresentationFramework
 # [System.Windows.MessageBox]::Show(MessageBody,Title,ButtonType,Image)
-1..10 | % { 
-    [System.Windows.MessageBox]::Show("You have been hacked" + ("!" * $_),"H4ck3d!","OK","Stop")
-    start-sleep -Seconds 1
-}
+# 1..10 | % { 
+#    [System.Windows.MessageBox]::Show("You have been hacked" + ("!" * $_),"H4ck3d!","OK","Stop")
+#    start-sleep -Seconds 1
+# }
 
 # How call this ps1 file (just execute):
 # .\Set-WallPaper.ps1
